@@ -1,3 +1,8 @@
+import pandas as pd 
+from faker import Faker
+from datetime import date
+import random
+
 # Classe SetPessoa que contém os dados comuns a todas as pessoas
 class SetPessoa:
     def __init__(self):
