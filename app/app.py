@@ -1,9 +1,15 @@
-import streamlit as st
-import pandas as pd
-from GhostData import SetPessoa
-from GhostData import gerar_dataset
+import os
+import sys
+
 import humanize
-import time
+import streamlit as st
+
+from GhostData.GhostData import SetPessoa
+from GhostData.GhostData import gerar_dataset
+
+# Adiciona o caminho da pasta GhostData ao sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'GhostData')))
+
 
 def compactar(numero):
     # Usa o humanize para converter o número em formato legível
