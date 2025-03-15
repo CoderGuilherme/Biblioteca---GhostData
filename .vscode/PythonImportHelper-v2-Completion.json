@@ -36,7 +36,7 @@
         "documentation": {}
     },
     {
-        "label": "SetPessoa",
+        "label": "*",
         "importPath": "GhostData.GhostData",
         "description": "GhostData.GhostData",
         "isExtraImport": true,
@@ -44,7 +44,7 @@
         "documentation": {}
     },
     {
-        "label": "gerar_dataset",
+        "label": "SetPessoa",
         "importPath": "GhostData.GhostData",
         "description": "GhostData.GhostData",
         "isExtraImport": true,
@@ -69,6 +69,22 @@
         "documentation": {}
     },
     {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -83,6 +99,24 @@
         "importPath": "random",
         "description": "random",
         "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
         "documentation": {}
     },
     {
@@ -167,75 +201,190 @@
         "documentation": {}
     },
     {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
         "label": "compactar",
         "kind": 2,
-        "importPath": "app.app",
-        "description": "app.app",
-        "peekOfCode": "def compactar(numero):\n    # Usa o humanize para converter o número em formato legível\n    numero_formatado = humanize.intword(numero)\n    # Substitui os termos para o português\n    numero_formatado = numero_formatado.replace(\"thousand\", \"mil\")\n    numero_formatado = numero_formatado.replace(\"million\", \"Mi\")\n    numero_formatado = numero_formatado.replace(\"billion\", \"Bi\")\n    numero_formatado = numero_formatado.replace(\"trillion\", \"Tri\")\n    return numero_formatado\nst.header(\"GhostData\", divider=\"violet\") ",
-        "detail": "app.app",
+        "importPath": "src.app.app",
+        "description": "src.app.app",
+        "peekOfCode": "def compactar(numero):\n    # Usa o humanize para converter o número em formato legível\n    numero_formatado = humanize.intword(numero)\n    # Substitui os termos para o português\n    numero_formatado = numero_formatado.replace(\"thousand\", \"mil\")\n    numero_formatado = numero_formatado.replace(\"million\", \"Mi\")\n    numero_formatado = numero_formatado.replace(\"billion\", \"Bi\")\n    numero_formatado = numero_formatado.replace(\"trillion\", \"Tri\")\n    return numero_formatado\nst.header(\"👻📊 GhostData Datasets Aleatórios\",divider='violet')",
+        "detail": "src.app.app",
         "documentation": {}
     },
     {
         "label": "load_data",
         "kind": 2,
-        "importPath": "app.app",
-        "description": "app.app",
-        "peekOfCode": "def load_data(data,num):\n    df = gerar_dataset(data,num)\n    return df\nst.sidebar.header(\"Configurações\",divider=\"violet\")\nnum = st.sidebar.number_input(\"Defina a quantidade de registros da sua base\",step=1,max_value=500000)\nst.sidebar.write(\"Sua base terá \",compactar(num), \"registros\")\noption_map = {\n    0:\"Pessoas\",\n    1:\"Funcionarios\",\n    2:\"Produtos\"",
-        "detail": "app.app",
+        "importPath": "src.app.app",
+        "description": "src.app.app",
+        "peekOfCode": "def load_data(data,num):\n    df = gerar_dataset(data,num)\n    return df\nst.sidebar.header(\"⚙️ Configurações\", divider=\"violet\")\n# 📌 Seção: Definição do Número de Registros\nst.sidebar.subheader(\"📊 Definição de Registros\", divider=\"blue\")\nnum = st.sidebar.number_input(\"Quantidade de registros:\", step=1, min_value=1, max_value=500000)\nst.sidebar.write(f\"📌 Sua base terá **{compactar(num)}** registros.\")\n# 📌 Seção: Escolha do Tema do Dataset\nst.sidebar.subheader(\"📌 Escolha um Tema\", divider=\"green\")",
+        "detail": "src.app.app",
         "documentation": {}
     },
     {
         "label": "num",
         "kind": 5,
-        "importPath": "app.app",
-        "description": "app.app",
-        "peekOfCode": "num = st.sidebar.number_input(\"Defina a quantidade de registros da sua base\",step=1,max_value=500000)\nst.sidebar.write(\"Sua base terá \",compactar(num), \"registros\")\noption_map = {\n    0:\"Pessoas\",\n    1:\"Funcionarios\",\n    2:\"Produtos\"\n}\nst.sidebar.subheader(\"Temas Dataset\")\nselection = st.sidebar.pills(\n    \"Escolha um tema\",",
-        "detail": "app.app",
+        "importPath": "src.app.app",
+        "description": "src.app.app",
+        "peekOfCode": "num = st.sidebar.number_input(\"Quantidade de registros:\", step=1, min_value=1, max_value=500000)\nst.sidebar.write(f\"📌 Sua base terá **{compactar(num)}** registros.\")\n# 📌 Seção: Escolha do Tema do Dataset\nst.sidebar.subheader(\"📌 Escolha um Tema\", divider=\"green\")\noption_map = {\n    0: \"👤 Pessoas\",\n    1: \"💼 Funcionários\",\n    2: \"📦 Produtos\",\n    3: \"🏬 Lojas\",\n    4: \"🛒 Vendas\",",
+        "detail": "src.app.app",
         "documentation": {}
     },
     {
         "label": "option_map",
         "kind": 5,
-        "importPath": "app.app",
-        "description": "app.app",
-        "peekOfCode": "option_map = {\n    0:\"Pessoas\",\n    1:\"Funcionarios\",\n    2:\"Produtos\"\n}\nst.sidebar.subheader(\"Temas Dataset\")\nselection = st.sidebar.pills(\n    \"Escolha um tema\",\n    options=option_map.keys(),\n    format_func=lambda option: option_map[option],",
-        "detail": "app.app",
+        "importPath": "src.app.app",
+        "description": "src.app.app",
+        "peekOfCode": "option_map = {\n    0: \"👤 Pessoas\",\n    1: \"💼 Funcionários\",\n    2: \"📦 Produtos\",\n    3: \"🏬 Lojas\",\n    4: \"🛒 Vendas\",\n}\nselection = st.sidebar.pills(\n    \"Escolha um tema\",\n    options=option_map.keys(),",
+        "detail": "src.app.app",
         "documentation": {}
     },
     {
         "label": "selection",
         "kind": 5,
-        "importPath": "app.app",
-        "description": "app.app",
-        "peekOfCode": "selection = st.sidebar.pills(\n    \"Escolha um tema\",\n    options=option_map.keys(),\n    format_func=lambda option: option_map[option],\n    selection_mode=\"single\"\n)\nmatch selection:\n    case 0:\n        escolha = SetPessoa\n    case _:",
-        "detail": "app.app",
+        "importPath": "src.app.app",
+        "description": "src.app.app",
+        "peekOfCode": "selection = st.sidebar.pills(\n    \"Escolha um tema\",\n    options=option_map.keys(),\n    format_func=lambda option: option_map[option],\n    selection_mode=\"single\"\n)\n# 🔄 Mapeamento de escolha e título correspondente\nmatch selection:\n    case 0:\n        escolha = SetPessoa",
+        "detail": "src.app.app",
         "documentation": {}
     },
     {
         "label": "botao",
         "kind": 5,
-        "importPath": "app.app",
-        "description": "app.app",
-        "peekOfCode": "botao = st.sidebar.button(\"Criar\", type=\"secondary\")\nif botao:\n    if escolha: \n        with st.spinner(\"Gerando...\", show_time=True):\n            df = gerar_dataset(escolha,num)\n        if df is not None and not df.empty:  # Verifica se o dataframe não está vazio\n            st.subheader(f\"Tabela de {option_map[selection]} com {compactar(num)} Registros\",divider=\"grey\")\n            st.dataframe(df, use_container_width=True)\n        else:\n            st.warning(\"Nenhum dado encontrado para essa escolha.\", icon=\"⚠️\")",
-        "detail": "app.app",
+        "importPath": "src.app.app",
+        "description": "src.app.app",
+        "peekOfCode": "botao = st.sidebar.button(\"Gerar Dataset\", type=\"primary\")\n# 📦 Processamento e Exibição dos Dados\nif botao:\n    if escolha:\n        with st.spinner(\"⏳ Gerando dados...\"):\n            titulo_completo = f\"{titulo} **com** {compactar(num)} **Registros**\"\n            if escolha == \"vendas\":  \n                df_produtos, df_estabelecimentos, df_vendas = gerar_vendas(num) \n                st.subheader(titulo_completo, divider=\"grey\")\n                st.subheader(\"📦 Produtos\", divider=\"grey\")",
+        "detail": "src.app.app",
+        "documentation": {}
+    },
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "src.app.teste",
+        "description": "src.app.teste",
+        "peekOfCode": "a = SetPessoa()\nprint(a.get_data())",
+        "detail": "src.app.teste",
+        "documentation": {}
+    },
+    {
+        "label": "'''departamentos",
+        "kind": 5,
+        "importPath": "src.GhostData.data",
+        "description": "src.GhostData.data",
+        "peekOfCode": "'''departamentos = {\n    \"TI\": {\n        \"Desenvolvedor\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Analista de Dados\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Engenheiro de Software\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Administrador de Sistemas\": [\"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Arquiteto de Soluções\": [\"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Cientista de Dados\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Suporte Técnico\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\"],\n        \"Especialista em Segurança da Informação\": [\"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],",
+        "detail": "src.GhostData.data",
+        "documentation": {}
+    },
+    {
+        "label": "faixa_salarial",
+        "kind": 5,
+        "importPath": "src.GhostData.data",
+        "description": "src.GhostData.data",
+        "peekOfCode": "faixa_salarial = {\n        'Estagiário': (1000, 2000),\n        'Júnior': (2000, 4000),\n        'Pleno': (4000, 8000),\n        'Sênior': (8000, 15000),\n        'Coordenador': (10000, 18000),\n        'Gerente': (15000, 25000),\n        'Diretor': (25000, 50000)\n    }'''\ncategorias_com_detalhes = {",
+        "detail": "src.GhostData.data",
+        "documentation": {}
+    },
+    {
+        "label": "categorias_com_detalhes",
+        "kind": 5,
+        "importPath": "src.GhostData.data",
+        "description": "src.GhostData.data",
+        "peekOfCode": "categorias_com_detalhes = {\n    \"Eletrônicos\": {\n        \"Smartphone\": {\"preco\": 1200, \"id\": \"eletr-001\"},\n        \"Notebook\": {\"preco\": 2500, \"id\": \"eletr-002\"},\n        \"Tablet\": {\"preco\": 800, \"id\": \"eletr-003\"},\n        \"Fone de Ouvido\": {\"preco\": 150, \"id\": \"eletr-004\"},\n        \"Smartwatch\": {\"preco\": 600, \"id\": \"eletr-005\"},\n        \"Câmera Digital\": {\"preco\": 900, \"id\": \"eletr-006\"},\n        \"Impressora\": {\"preco\": 400, \"id\": \"eletr-007\"},\n        \"Monitor\": {\"preco\": 500, \"id\": \"eletr-008\"},",
+        "detail": "src.GhostData.data",
         "documentation": {}
     },
     {
         "label": "SetPessoa",
         "kind": 6,
-        "importPath": "GhostData.GhostData",
-        "description": "GhostData.GhostData",
+        "importPath": "src.GhostData.GhostData",
+        "description": "src.GhostData.GhostData",
         "peekOfCode": "class SetPessoa:\n    def __init__(self):\n        self.fake = Faker('pt-BR')\n        self.name = self.fake.first_name()  # Nome próprio\n        self.last_name = self.fake.last_name()  # Sobrenome\n        self.phone_number = self.fake.phone_number()  # Número de telefone\n        self.state = self.fake.state()  # Estado\n        self.city = self.fake.city()  # Cidade \n        self.birth = self.fake.date_of_birth(minimum_age=18, maximum_age=80)\n        self.age = self.calculate_age()",
-        "detail": "GhostData.GhostData",
+        "detail": "src.GhostData.GhostData",
+        "documentation": {}
+    },
+    {
+        "label": "SetFuncionario",
+        "kind": 6,
+        "importPath": "src.GhostData.GhostData",
+        "description": "src.GhostData.GhostData",
+        "peekOfCode": "class SetFuncionario(SetPessoa):\n    departamentos = {\n    \"TI\": {\n        \"Desenvolvedor\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Analista de Dados\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Engenheiro de Software\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Administrador de Sistemas\": [\"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Arquiteto de Soluções\": [\"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Cientista de Dados\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\", \"Diretor\"],\n        \"Suporte Técnico\": [\"Estagiário\", \"Júnior\", \"Pleno\", \"Sênior\", \"Coordenador\", \"Gerente\"],",
+        "detail": "src.GhostData.GhostData",
+        "documentation": {}
+    },
+    {
+        "label": "SetEstabelecimento",
+        "kind": 6,
+        "importPath": "src.GhostData.GhostData",
+        "description": "src.GhostData.GhostData",
+        "peekOfCode": "class SetEstabelecimento:\n    domains = ['gmail.com', 'outlook.com', 'hotmail.com']\n    def __init__(self):\n        self.fake = Faker('pt-BR')\n        self.id_estabelecimento = str(uuid.uuid4())[:8]  # Simula um ID único\n        self.nome = f\"{self.fake.company_suffix()} {self.fake.company()}\"\n        self.cnpj = self.gerar_cnpj()\n        self.telefone = self.fake.phone_number()\n        self.email = self.gerar_email()\n        self.endereco = self.fake.street_address()",
+        "detail": "src.GhostData.GhostData",
+        "documentation": {}
+    },
+    {
+        "label": "SetProduto",
+        "kind": 6,
+        "importPath": "src.GhostData.GhostData",
+        "description": "src.GhostData.GhostData",
+        "peekOfCode": "class SetProduto:\n    def __init__(self):\n            # Obtém o caminho absoluto do diretório onde está GhostData.py\n            base_dir = os.path.dirname(os.path.abspath(__file__))\n            json_path = os.path.join(base_dir, \"..\", \"Data\", \"produtos.json\")\n            self.produtos_disponiveis = self.carregar_produtos_do_json(json_path)\n            self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()\n    def carregar_produtos_do_json(self, nome_arquivo):\n        try:\n            with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:",
+        "detail": "src.GhostData.GhostData",
+        "documentation": {}
+    },
+    {
+        "label": "gerar_vendas",
+        "kind": 2,
+        "importPath": "src.GhostData.GhostData",
+        "description": "src.GhostData.GhostData",
+        "peekOfCode": "def gerar_vendas(numero_de_registros):\n    produtos = []\n    estabelecimentos = []\n    vendas = []\n    for _ in range(numero_de_registros):\n        # Criar Produto e Estabelecimento\n        produto = SetProduto()\n        estabelecimento = SetEstabelecimento()\n        # Armazenar nos DataFrames\n        produtos.append(produto.get_data())",
+        "detail": "src.GhostData.GhostData",
         "documentation": {}
     },
     {
         "label": "gerar_dataset",
         "kind": 2,
-        "importPath": "GhostData.GhostData",
-        "description": "GhostData.GhostData",
+        "importPath": "src.GhostData.GhostData",
+        "description": "src.GhostData.GhostData",
         "peekOfCode": "def gerar_dataset(classe, num_registros):\n    dados = []\n    for _ in range(num_registros):\n        obj = classe()  \n        dados.append(obj.get_data()) \n    df = pd.DataFrame(dados)\n    return df",
-        "detail": "GhostData.GhostData",
+        "detail": "src.GhostData.GhostData",
+        "documentation": {}
+    },
+    {
+        "label": "SetProduto",
+        "kind": 6,
+        "importPath": "src.GhostData.teste",
+        "description": "src.GhostData.teste",
+        "peekOfCode": "class SetProduto:\n    def __init__(self):\n        self.produtos_disponiveis = self.carregar_produtos_do_json(\"..\\Data\\produtos.json\")  # Carrega os produtos do arquivo JSON\n        self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()\n    def carregar_produtos_do_json(self, caminho_relativo):\n        try:\n            # Constrói o caminho absoluto correto\n            caminho_absoluto = os.path.join(os.path.dirname(os.path.abspath(__file__)), caminho_relativo)\n            with open(caminho_absoluto, 'r', encoding='utf-8') as arquivo:\n                dados = json.load(arquivo)",
+        "detail": "src.GhostData.teste",
+        "documentation": {}
+    },
+    {
+        "label": "carregar_produtos_do_json",
+        "kind": 2,
+        "importPath": "src.GhostData.teste",
+        "description": "src.GhostData.teste",
+        "peekOfCode": "def carregar_produtos_do_json(caminho_relativo):\n    try:\n        # Constrói o caminho absoluto correto\n        caminho_absoluto = os.path.join(os.path.dirname(os.path.abspath(__file__)), caminho_relativo)\n        with open(caminho_absoluto, 'r', encoding='utf-8') as arquivo:\n            dados = json.load(arquivo)\n        return dados\n    except FileNotFoundError:\n        print(f\"Erro: Arquivo '{caminho_relativo}' não encontrado.\")\n        return None",
+        "detail": "src.GhostData.teste",
+        "documentation": {}
+    },
+    {
+        "label": "produto",
+        "kind": 5,
+        "importPath": "src.GhostData.teste",
+        "description": "src.GhostData.teste",
+        "peekOfCode": "produto = SetProduto()\nprint(produto.get_data())",
+        "detail": "src.GhostData.teste",
         "documentation": {}
     },
     {
@@ -515,15 +664,6 @@
         "description": "venv.Scripts.pywin32_testall",
         "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
         "detail": "venv.Scripts.pywin32_testall",
-        "documentation": {}
-    },
-    {
-        "label": "a",
-        "kind": 5,
-        "importPath": "teste",
-        "description": "teste",
-        "peekOfCode": "a = SetPessoa()\nprint(a)",
-        "detail": "teste",
         "documentation": {}
     }
 ]

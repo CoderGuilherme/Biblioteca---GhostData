@@ -4,6 +4,8 @@ from datetime import date
 import random
 import json
 import uuid
+import os
+
 
 # Classe SetPessoa que contém os dados comuns a todas as pessoas
 class SetPessoa:
@@ -213,16 +215,18 @@ class SetEstabelecimento:
             "CEP": self.cep
         }
 
-
 class SetProduto:
     def __init__(self):
-        self.produtos_disponiveis = self.carregar_produtos_do_json("Data\produtos.json")  # Carrega os produtos do arquivo JSON
-        self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()
+            # Obtém o caminho absoluto do diretório onde está GhostData.py
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            json_path = os.path.join(base_dir, "..", "Data", "produtos.json")
+
+            self.produtos_disponiveis = self.carregar_produtos_do_json(json_path)
+            self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()
 
     def carregar_produtos_do_json(self, nome_arquivo):
-        """Carrega os dados dos produtos a partir de um arquivo JSON."""
         try:
-            with open(nome_arquivo, 'r', encoding='utf-8') as arquivo: # Adicionado encoding utf-8
+            with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
                 return json.load(arquivo)
         except FileNotFoundError:
             print(f"Erro: arquivo '{nome_arquivo}' não encontrado.")
@@ -232,15 +236,18 @@ class SetProduto:
             return {}
 
     def gerar_produto(self):
+        if not self.produtos_disponiveis:
+            return None, None, None, None
+
         categoria = random.choice(list(self.produtos_disponiveis.keys()))
         nome = random.choice(list(self.produtos_disponiveis[categoria].keys()))
         id_produto = self.produtos_disponiveis[categoria][nome]["id"]
-        preco = float(self.produtos_disponiveis[categoria][nome].get("preco", 0))  # Garante que seja float
+        preco = float(self.produtos_disponiveis[categoria][nome].get("preco", 0))
         return categoria, nome, id_produto, preco
 
     def get_data(self):
         """Retorna os dados do produto em um dicionário."""
-        if self.categoria is None: # adicionado validação de produtos indisponiveis
+        if self.categoria is None:
             return {"erro": "Produtos não disponíveis"}
         return {
             "id_produto": self.id_produto,
@@ -248,7 +255,6 @@ class SetProduto:
             "nome": self.nome,
             "preco": self.preco
         }
-
 
 # Função para gerar vendas
 def gerar_vendas(numero_de_registros):
