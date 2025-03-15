@@ -338,7 +338,7 @@
         "kind": 6,
         "importPath": "src.GhostData.GhostData",
         "description": "src.GhostData.GhostData",
-        "peekOfCode": "class SetProduto:\n    def __init__(self):\n            # Obtém o caminho absoluto do diretório onde está GhostData.py\n            base_dir = os.path.dirname(os.path.abspath(__file__))\n            json_path = os.path.join(base_dir, \"..\", \"Data\", \"produtos.json\")\n            self.produtos_disponiveis = self.carregar_produtos_do_json(json_path)\n            self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()\n    def carregar_produtos_do_json(self, nome_arquivo):\n        try:\n            with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:",
+        "peekOfCode": "class SetProduto:\n    produtos = {\"Eletrônicos\": {\n        \"Smartphone\": {\"preco\": 1200, \"id\": \"eletr-001\"},\n        \"Notebook\": {\"preco\": 2500, \"id\": \"eletr-002\"},\n        \"Tablet\": {\"preco\": 800, \"id\": \"eletr-003\"},\n        \"Fone de Ouvido\": {\"preco\": 150, \"id\": \"eletr-004\"},\n        \"Smartwatch\": {\"preco\": 600, \"id\": \"eletr-005\"},\n        \"Câmera Digital\": {\"preco\": 900, \"id\": \"eletr-006\"},\n        \"Impressora\": {\"preco\": 400, \"id\": \"eletr-007\"},\n        \"Monitor\": {\"preco\": 500, \"id\": \"eletr-008\"},",
         "detail": "src.GhostData.GhostData",
         "documentation": {}
     },

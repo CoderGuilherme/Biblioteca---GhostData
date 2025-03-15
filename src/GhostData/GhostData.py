@@ -216,24 +216,165 @@ class SetEstabelecimento:
         }
 
 class SetProduto:
+    produtos = {"Eletrônicos": {
+        "Smartphone": {"preco": 1200, "id": "eletr-001"},
+        "Notebook": {"preco": 2500, "id": "eletr-002"},
+        "Tablet": {"preco": 800, "id": "eletr-003"},
+        "Fone de Ouvido": {"preco": 150, "id": "eletr-004"},
+        "Smartwatch": {"preco": 600, "id": "eletr-005"},
+        "Câmera Digital": {"preco": 900, "id": "eletr-006"},
+        "Impressora": {"preco": 400, "id": "eletr-007"},
+        "Monitor": {"preco": 500, "id": "eletr-008"},
+        "Televisão": {"preco": 1800, "id": "eletr-009"},
+        "Console de Videogame": {"preco": 1500, "id": "eletr-010"},
+        "Caixa de Som Bluetooth": {"preco": 200, "id": "eletr-011"},
+        "Roteador Wi-Fi": {"preco": 100, "id": "eletr-012"},
+        "Pen Drive": {"preco": 50, "id": "eletr-013"},
+        "HD Externo": {"preco": 300, "id": "eletr-014"},
+        "Carregador Portátil": {"preco": 80, "id": "eletr-015"}
+    },
+    "Alimentos": {
+        "Arroz": {"preco": 15, "id": "alim-001"},
+        "Feijão": {"preco": 12, "id": "alim-002"},
+        "Macarrão": {"preco": 8, "id": "alim-003"},
+        "Chocolate": {"preco": 10, "id": "alim-004"},
+        "Café": {"preco": 20, "id": "alim-005"},
+        "Açúcar": {"preco": 7, "id": "alim-006"},
+        "Sal": {"preco": 5, "id": "alim-007"},
+        "Óleo": {"preco": 18, "id": "alim-008"},
+        "Leite": {"preco": 6, "id": "alim-009"},
+        "Ovos": {"preco": 12, "id": "alim-010"},
+        "Pão": {"preco": 4, "id": "alim-011"},
+        "Queijo": {"preco": 25, "id": "alim-012"},
+        "Frango": {"preco": 22, "id": "alim-013"},
+        "Carne Bovina": {"preco": 30, "id": "alim-014"},
+        "Peixe": {"preco": 28, "id": "alim-015"},
+        "Frutas": {"preco": 15, "id": "alim-016"},
+        "Legumes": {"preco": 18, "id": "alim-017"},
+        "Verduras": {"preco": 10, "id": "alim-018"},
+        "Iogurte": {"preco": 8, "id": "alim-019"},
+        "Cereal": {"preco": 12, "id": "alim-020"},
+        "Biscoitos": {"preco": 7, "id": "alim-021"},
+        "Sucos": {"preco": 10, "id": "alim-022"},
+        "Refrigerantes": {"preco": 9, "id": "alim-023"},
+        "Cerveja": {"preco": 6, "id": "alim-024"},
+        "Vinho": {"preco": 35, "id": "alim-025"}
+    },
+    "Roupas": {
+        "Camiseta": {"preco": 30, "id": "roup-001"},
+        "Calça": {"preco": 80, "id": "roup-002"},
+        "Jaqueta": {"preco": 150, "id": "roup-003"},
+        "Tênis": {"preco": 120, "id": "roup-004"},
+        "Meias": {"preco": 10, "id": "roup-005"},
+        "Cuecas": {"preco": 15, "id": "roup-006"},
+        "Sutiã": {"preco": 25, "id": "roup-007"},
+        "Vestido": {"preco": 90, "id": "roup-008"},
+        "Saia": {"preco": 60, "id": "roup-009"},
+        "Blusa": {"preco": 45, "id": "roup-010"},
+        "Casaco": {"preco": 180, "id": "roup-011"},
+        "Suéter": {"preco": 100, "id": "roup-012"},
+        "Calçado Social": {"preco": 150, "id": "roup-013"},
+        "Roupa de Banho": {"preco": 70, "id": "roup-014"},
+        "Roupa Íntima": {"preco": 35, "id": "roup-015"},
+        "Pijama": {"preco": 50, "id": "roup-016"},
+        "Roupa Esportiva": {"preco": 110, "id": "roup-017"},
+        "Acessórios": {"preco": 20, "id": "roup-018"},
+        "Cinto": {"preco": 40, "id": "roup-019"},
+        "Boné": {"preco": 25, "id": "roup-020"},
+        "Chapéu": {"preco": 30, "id": "roup-021"},
+        "Luvas": {"preco": 18, "id": "roup-022"},
+        "Cachecol": {"preco": 35, "id": "roup-023"}
+    },
+    "Livros": {
+        "Romance": {"preco": 30, "id": "livr-001"},
+        "Ficção Científica": {"preco": 35, "id": "livr-002"},
+        "Fantasia": {"preco": 40, "id": "livr-003"},
+        "Suspense": {"preco": 28, "id": "livr-004"},
+        "Terror": {"preco": 32, "id": "livr-005"},
+        "Biografia": {"preco": 45, "id": "livr-006"},
+        "Autoajuda": {"preco": 25, "id": "livr-007"},
+        "Infantil": {"preco": 20, "id": "livr-008"},
+        "Didático": {"preco": 50, "id": "livr-009"},
+        "História": {"preco": 38, "id": "livr-010"},
+        "Poesia": {"preco": 22, "id": "livr-011"},
+        "Mangá": {"preco": 15, "id": "livr-012"},
+        "Quadrinhos": {"preco": 18, "id": "livr-013"},
+        "Livro de Receitas": {"preco": 30, "id": "livr-014"},
+        "Livro de Arte": {"preco": 55, "id": "livr-015"}
+    },
+    "Móveis": {
+        "Sofá": {"preco": 1200, "id": "move-001"},
+        "Cama": {"preco": 800, "id": "move-002"},
+        "Mesa": {"preco": 400, "id": "move-003"},
+        "Cadeira": {"preco": 150, "id": "move-004"},
+        "Guarda-Roupa": {"preco": 900, "id": "move-005"},
+        "Estante": {"preco": 300, "id": "move-006"},
+        "Criado-Mudo": {"preco": 100, "id": "move-007"},
+        "Cômoda": {"preco": 450, "id": "move-008"},
+        "Rack": {"preco": 350, "id": "move-009"},
+        "Painel de TV": {"preco": 500, "id": "move-010"},
+        "Armário de Cozinha": {"preco": 700, "id": "move-011"},
+        "Poltrona": {"preco": 250, "id": "move-012"},
+        "Mesa de Centro": {"preco": 200, "id": "move-013"},
+        "Escrivaninha": {"preco": 380, "id": "move-014"},
+        "Cadeira de Escritório": {"preco": 320, "id": "move-015"}
+    },
+    "Ferramentas": {
+        "Chave de Fenda": {"preco": 20, "id": "ferr-001"},
+        "Martelo": {"preco": 30, "id": "ferr-002"},
+        "Alicate": {"preco": 25, "id": "ferr-003"},
+        "Furadeira": {"preco": 180, "id": "ferr-004"},
+        "Parafusadeira": {"preco": 150, "id": "ferr-005"},
+        "Serra": {"preco": 120, "id": "ferr-006"},
+        "Trena": {"preco": 15, "id": "ferr-007"},
+        "Nível": {"preco": 40, "id": "ferr-008"},
+        "Chave Inglesa": {"preco": 50, "id": "ferr-009"},
+        "Jogo de Chaves": {"preco": 80, "id": "ferr-010"},
+        "Lanterna": {"preco": 35, "id": "ferr-011"},
+        "Fita Isolante": {"preco": 10, "id": "ferr-012"},
+        "Cola": {"preco": 8, "id": "ferr-013"},
+        "Lixa": {"preco": 5, "id": "ferr-014"},
+        "Óculos de Proteção": {"preco": 22, "id": "ferr-015"}
+    },
+    "Brinquedos": {
+        "Boneca": {"preco": 50, "id": "brin-001"},
+        "Carrinho": {"preco": 40, "id": "brin-002"},
+        "Quebra-Cabeça": {"preco": 30, "id": "brin-003"},
+        "Jogo de Tabuleiro": {"preco": 60, "id": "brin-004"},
+        "Videogame": {"preco": 1500, "id": "brin-005"},
+        "Bola": {"preco": 25, "id": "brin-006"},
+        "Bicicleta": {"preco": 300, "id": "brin-007"},
+        "Patinete": {"preco": 120, "id": "brin-008"},
+        "Pelúcia": {"preco": 35, "id": "brin-009"},
+        "Lego": {"preco": 80, "id": "brin-010"},
+        "Massinha": {"preco": 18, "id": "brin-011"},
+        "Dominó": {"preco": 22, "id": "brin-012"},
+        "Cartas": {"preco": 12, "id": "brin-013"},
+        "Jogo de Construção": {"preco": 70, "id": "brin-014"},
+        "Instrumento Musical": {"preco": 200, "id": "brin-015"}
+    },
+    "Esportes": {
+        "Bola de Futebol": {"preco": 40, "id": "espt-001"},
+        "Bola de Basquete": {"preco": 45, "id": "espt-002"},
+        "Bola de Vôlei": {"preco": 38, "id": "espt-003"},
+        "Raquete de Tênis": {"preco": 150, "id": "espt-004"},
+        "Rede de Vôlei": {"preco": 100, "id": "espt-005"},
+        "Corda de Pular": {"preco": 15, "id": "espt-006"},
+        "Halteres": {"preco": 80, "id": "espt-007"},
+        "Esteira": {"preco": 1800, "id": "espt-008"},
+        "Bicicleta Ergométrica": {"preco": 1200, "id": "espt-009"},
+        "Roupa de Natação": {"preco": 60, "id": "espt-010"},
+        "Óculos de Natação": {"preco": 30, "id": "espt-011"},
+        "Prancha de Surf": {"preco": 400, "id": "espt-012"},
+        "Skate": {"preco": 250, "id": "espt-013"},
+        "Patins": {"preco": 180, "id": "espt-014"},
+        "Equipamento de Camping": {"preco": 350, "id": "espt-015"}
+    }
+}
+
     def __init__(self):
-            # Obtém o caminho absoluto do diretório onde está GhostData.py
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            json_path = os.path.join(base_dir, "..", "Data", "produtos.json")
-
-            self.produtos_disponiveis = self.carregar_produtos_do_json(json_path)
-            self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()
-
-    def carregar_produtos_do_json(self, nome_arquivo):
-        try:
-            with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
-                return json.load(arquivo)
-        except FileNotFoundError:
-            print(f"Erro: arquivo '{nome_arquivo}' não encontrado.")
-            return {}
-        except json.JSONDecodeError:
-            print(f"Erro: arquivo '{nome_arquivo}' inválido. Verifique o formato JSON.")
-            return {}
+        self.produtos_disponiveis = SetProduto.produtos  # Usa o atributo estático
+        self.categoria, self.nome, self.id_produto, self.preco = self.gerar_produto()
 
     def gerar_produto(self):
         if not self.produtos_disponiveis:
@@ -246,7 +387,6 @@ class SetProduto:
         return categoria, nome, id_produto, preco
 
     def get_data(self):
-        """Retorna os dados do produto em um dicionário."""
         if self.categoria is None:
             return {"erro": "Produtos não disponíveis"}
         return {
