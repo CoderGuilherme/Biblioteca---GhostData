@@ -11,6 +11,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from GhostData.GhostData import *
 
 
+st.set_page_config(page_title="GhostData",layout="wide",initial_sidebar_state="expanded",page_icon="👻 ")
 
 def compactar(numero):
     # Usa o humanize para converter o número em formato legível
@@ -24,8 +25,8 @@ def compactar(numero):
 
     return numero_formatado
 
-st.header("👻📊 GhostData Datasets Aleatórios", divider="violet")
 
+st.header("👻📊 GhostData Datasets Aleatórios",divider='violet')
 
 
 def load_data(data,num):
